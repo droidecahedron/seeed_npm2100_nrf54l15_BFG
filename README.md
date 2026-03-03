@@ -5,9 +5,10 @@
   <br>
   <img width="295" height="391" alt="bfg2 seeed fINAL" src="https://github.com/user-attachments/assets/4387961a-975d-45b5-bbe9-02b6ddb1e811" />
   </br>
+  
   This <b>unofficial</b> application demonstrates using an nRF54L15 as a Bluetooth Low Energy (BLE) peripheral,  powered by an nPM2100 power management IC (PMIC) and primary cell battery, as a wireless battery fuel gauge and PMIC controller. This is the sequel to the original <a href=github.com/droidecahedron/npm2100_nrf54l15_BFG>BFG Demo</a>).
   </br>
-  However, you do NOT need so many kits and jumpers together as you did with this demo's predecessor! This time it's all together on one board.
+  However, you do NOT need so many kits and jumpers together as you did with this demo's predecessor! This time it's all together on one board. Be free of multiple boards and jumper wires!
 </p>
 
 # Requirements
@@ -70,7 +71,7 @@ Then use the nRF Connect for Mobile app and use the scan filter for "Seeed" to f
 The LED will blink periodically while advertising, and when you connect via a central device (such as a smart phone) it will be on as a solid light.
 You can press and hold SHPHLD for ~2 seconds to enter ship mode (and the LED will stay off), and press/hold it for about 500ms or half a second to exit shipmode (and the LED should blink again for BLE activity).
 
-You can also write to the ship mode WR characteristic from a central device (like your phone) to enter ship mode via software, exiting it is still via the button.
+You can also write to the ship mode WR characteristic from a central device (like your phone) to enter ship mode via software, exiting it is still via the button. Entering ship mode will terminate any active BLE connection.
 
 ## Example output
 ### nRF Connect for Mobile (iOS)
