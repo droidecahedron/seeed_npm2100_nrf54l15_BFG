@@ -67,7 +67,10 @@ Then use the nRF Connect for Mobile app and use the scan filter for "Seeed" to f
 <img width="203" height="303" alt="image" src="https://github.com/user-attachments/assets/b59a6129-228f-4f13-b5e0-6a5b5410e385" />
 <br>
 
-The LED will blink periodically while advertising, and when you connect via a central device (such as a smart phone) it will be on solidly.
+The LED will blink periodically while advertising, and when you connect via a central device (such as a smart phone) it will be on as a solid light.
+You can press and hold SHPHLD for ~2 seconds to enter ship mode (and the LED will stay off), and press/hold it for about 500ms or half a second to exit shipmode (and the LED should blink again for BLE activity).
+
+You can also write to the ship mode WR characteristic from a central device (like your phone) to enter ship mode via software, exiting it is still via the button.
 
 ## Example output
 ### nRF Connect for Mobile (iOS)
