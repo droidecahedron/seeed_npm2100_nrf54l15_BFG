@@ -1,0 +1,11 @@
+&npm2100_pmic {
+    host-int-gpios = <&gpio1 6 (GPIO_ACTIVE_HIGH)>;
+    host-int-type = "level";
+    pmic-int-pin = <1>;
+    pmic-int-flags = <GPIO_ACTIVE_HIGH>;
+};
+
+&npm2100_boost {
+    /* 2V results in optimal currents through the external LED */
+    regulator-init-microvolt = <2000000>;
+};

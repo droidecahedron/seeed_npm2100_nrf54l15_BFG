@@ -1,0 +1,18 @@
+# Copyright (c) 2024 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: seeed_nrf54l15_npm2100/nrf54l15/cpuflpr/xip
+name: Seeed-nRF54L15-nPM2100-nRF54L15-Fast-Lightweight-Peripheral-Processor (RRAM XIP)
+type: mcu
+arch: riscv
+toolchain:
+  - zephyr
+sysbuild: true
+ram: 68
+flash: 96
+supported:
+  - counter
+  - gpio
+  - i2c
+  - spi
+  - watchdog
