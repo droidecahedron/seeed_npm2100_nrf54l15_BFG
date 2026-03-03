@@ -71,11 +71,11 @@ The LED will blink periodically while advertising, and when you connect via a ce
 
 ## Example output
 ### nRF Connect for Mobile (iOS)
-<img width="750" height="1334" alt="image" src="https://github.com/user-attachments/assets/1be243c6-b79e-4a0f-947c-f1e7834d37c1" />
+<img width="31%" height="1334" alt="image" src="https://github.com/user-attachments/assets/1be243c6-b79e-4a0f-947c-f1e7834d37c1" />
 
 
 ### Reading values
-<img width="750" height="1334" alt="image" src="https://github.com/user-attachments/assets/ac71466a-629c-4083-bd7e-4ee02f930a72" />
+<img width="31%" height="1334" alt="image" src="https://github.com/user-attachments/assets/ac71466a-629c-4083-bd7e-4ee02f930a72" />
 
 
 ### Logs
