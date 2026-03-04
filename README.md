@@ -62,7 +62,7 @@ To build the sample, follow the instructions in [Building an application](https:
 
 **The board typically arrives in ship mode. You will need to press the SHPHLD button for 1-2 seconds to wake it up for the debugger to be able to interface.**
 
-`west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="."` followed by `west flash`.
+`west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
 
 Then use the nRF Connect for Mobile app and use the scan filter for "Seeed" to find `Seeed npm2100_nrf54l15` (which is the name set in `prj.conf`), and play with the various characteristics using the table above.
 
