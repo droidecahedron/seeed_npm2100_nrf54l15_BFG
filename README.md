@@ -30,7 +30,7 @@
   <img width="239" height="144" alt="image" src="https://github.com/user-attachments/assets/b3c6c8bc-c91e-43f8-b8d9-9e0a7131b272" />
 
 ## Software
-- [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nRF-Connect-SDK) `V3.1.2` to build and program.
+- [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nRF-Connect-SDK) `V3.2.1` to build and program.
 - [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-mobile) for iOS/Android.
 
 
