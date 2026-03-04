@@ -13,7 +13,7 @@
 
 # Requirements
 ## Hardware
-- **nRF54L15 DK** to use as a programmer
+- **nRF54L15 DK** to use as a programmer. If you have your own jtag/swd programmer such as jlink, you do not need to use a DK.
   
   <img src="https://github.com/user-attachments/assets/a302e826-4cca-405f-9982-6da59a2ac740" width=15% >
   
