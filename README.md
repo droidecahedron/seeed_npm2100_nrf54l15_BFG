@@ -8,7 +8,7 @@
   
   This <b>unofficial</b> application demonstrates using an nRF54L15 as a Bluetooth Low Energy (BLE) peripheral,  powered by an nPM2100 power management IC (PMIC) and primary cell battery, as a wireless battery fuel gauge and PMIC controller. 
   </br>
-  This is the sequel to the original <a href="github.com/droidecahedron/npm2100_nrf54l15_BFG">BFG Demo</a>).
+  This is the sequel to the original <a href="https://github.com/droidecahedron/npm2100_nrf54l15_BFG" target="_blank">BFG Demo</a>).
   </br>
   However, you do NOT need so many kits and jumpers together as you did with this demo's predecessor! This time it's all together on one board. Be free of multiple boards and jumper wires!
 </p>
