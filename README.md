@@ -57,18 +57,22 @@ Characteristic|UUID prefix|perm|Purpose|Data type
 
 
 # Building and Running
+## Programming and Flashing
 This application is built like all other typical nRF Connect SDK applications.
 To build the sample, follow the instructions in [Building an application](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/app_dev/config_and_build/building.html#building) for your preferred building environment. See also [Programming an application](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/app_dev/programming.html#programming) for programming steps.
 
 
 > [!IMPORTANT]
-> **The board typically arrives in ship mode. You will need to press the SHPHLD button for 1-2 seconds to wake it up.**
-> When you are out of ship mode, the LED should be blinking.
-> From here, enter ship mode again by holding down SHPHLD until it stops blinking.
-> Plug in the SWD cable.
-> Leave ship mode with the SWD cable plugged in. The LED may not turn on this time. Try the next step, if it fails then try leaving ship mode again.
-> Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
-> This flow only has to happen for a first out of the box experience for the seeed board. From here, as long as you're out of ship mode, you can program at your leisure.
+> The first time you unbox the seeed board, it will require a few more steps for an initial flash.
+> 
+> 1) **The board typically arrives in ship mode. You will need to press the SHPHLD button for 1-2 seconds to wake it up.**
+> 
+> 2) When you are out of ship mode, the LED should be blinking.
+> 3) From here, enter ship mode again by holding down SHPHLD until it stops blinking.
+> 4) Plug in the SWD cable.
+> 5) Leave ship mode with the SWD cable plugged in. The LED may not turn on this time. Try the next step, if it fails then try leaving ship mode again.
+> 6) Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+> This flow only has to happen for a first out of the box experience for the seeed board. From here, as long as you're out of ship mode, you can reprogram the device without this sequence of steps.
 
 > [!NOTE]
 > The Seeed board doesn't have an OBD like the nRF54L15-DK does. So use your nRF54L15-DK to program the Seeed board externally. The Seeed board needs to be powered, and match the pins. If your ribbon cable has a red line for P1, that can be matched by the dot on the silk as well as the orientation of "SWD" text on the Seeed board. See images below.
@@ -80,9 +84,10 @@ To build the sample, follow the instructions in [Building an application](https:
 
 
 
+## Usage after programming
+From here, you can remove the SWD cable unless you want to program it with something else.
 
 Then use the nRF Connect for Mobile app and use the scan filter for "Seeed" to find `Seeed npm2100_nrf54l15` (which is the name set in `prj.conf`), and play with the various characteristics using the table above.
-
 
 The LED will blink periodically while advertising, and when you connect via a central device (such as a smart phone) it will be on as a solid light.
 
