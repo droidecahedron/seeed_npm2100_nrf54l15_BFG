@@ -65,13 +65,12 @@ To build the sample, follow the instructions in [Building an application](https:
 > [!IMPORTANT]
 > The first time you unbox the seeed board, it will require a few more steps for an initial flash.
 > 
-> 1) **The board typically arrives in ship mode. You will need to press the SHPHLD button for 1-2 seconds to wake it up.**
-> 
-> 2) When you are out of ship mode, the LED should be blinking.
-> 3) From here, enter ship mode again by holding down SHPHLD until it stops blinking.
-> 4) Plug in the SWD cable.
-> 5) Leave ship mode with the SWD cable plugged in. The LED may not turn on this time. Try the next step, if it fails then try leaving ship mode again.
-> 6) Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+> 1) **The board typically arrives in ship mode.**
+> 2) Plug in the SWD cable like the images below.
+> 3) Leave ship mode with the SWD cable plugged in. You can do this by holding the SHPHLD button for about half a second. The LED may not turn on this time. Try the next step. 
+> 4) Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+> 5) If the above failed, then remove the SWD cable. If the LED is blinking, enter ship mode by holding down SHPHLD for 2 seconds. The LED will turn off. Go back to step 1.
+> 6) If the LED is not blinking, exit shipmode by holding SHPHLD down for half a second until you see the LED blinking. Then hold it for two seconds to go back to ship mode, the LED will turn off. Go back to step 1.  
 > This flow only has to happen for a first out of the box experience for the seeed board. From here, as long as you're out of ship mode, you can reprogram the device without this sequence of steps.
 
 > [!NOTE]
