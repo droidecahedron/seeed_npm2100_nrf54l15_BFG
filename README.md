@@ -168,3 +168,6 @@ flowchart LR
     main-->|2.sem_gpio_ready|ble
     ble-->|3.sem_ble_ready|main
 ```
+
+# Note
+Sometimes, if it's been in shphld with a veeeeery long time with this sample, you may need to pop the battery out/back in for normal operation again.
