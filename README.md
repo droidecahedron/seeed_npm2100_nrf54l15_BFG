@@ -60,9 +60,17 @@ Characteristic|UUID prefix|perm|Purpose|Data type
 This application is built like all other typical nRF Connect SDK applications.
 To build the sample, follow the instructions in [Building an application](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/app_dev/config_and_build/building.html#building) for your preferred building environment. See also [Programming an application](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/app_dev/programming.html#programming) for programming steps.
 
-**The board typically arrives in ship mode. You will need to press the SHPHLD button for 1-2 seconds to wake it up for the debugger to be able to interface.**
 
 > [!IMPORTANT]
+> **The board typically arrives in ship mode. You will need to press the SHPHLD button for 1-2 seconds to wake it up.**
+> When you are out of ship mode, the LED should be blinking.
+> From here, enter ship mode again by holding down SHPHLD until it stops blinking.
+> Plug in the SWD cable.
+> Leave ship mode with the SWD cable plugged in. The LED may not turn on this time. Try the next step, if it fails then try leaving ship mode again.
+> Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+> This flow only has to happen for a first out of the box experience for the seeed board. From here, as long as you're out of ship mode, you can program at your leisure.
+
+> [!NOTE]
 > The Seeed board doesn't have an OBD like the nRF54L15-DK does. So use your nRF54L15-DK to program the Seeed board externally. The Seeed board needs to be powered, and match the pins. If your ribbon cable has a red line for P1, that can be matched by the dot on the silk as well as the orientation of "SWD" text on the Seeed board. See images below.
 
 <img width="673" height="427" alt="image" src="https://github.com/user-attachments/assets/8a2f71a3-d0e0-4302-9ab6-d02e581598f0" />
@@ -70,7 +78,8 @@ To build the sample, follow the instructions in [Building an application](https:
 <img width="203" height="303" alt="image" src="https://github.com/user-attachments/assets/b59a6129-228f-4f13-b5e0-6a5b5410e385" />
 <br>
 
-Once you've connected the SWD cable and the device is out of ship mode, run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+
+
 
 Then use the nRF Connect for Mobile app and use the scan filter for "Seeed" to find `Seeed npm2100_nrf54l15` (which is the name set in `prj.conf`), and play with the various characteristics using the table above.
 
