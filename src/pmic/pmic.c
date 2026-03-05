@@ -195,7 +195,6 @@ int pmic_fg_thread(void)
             if (err < 0)
             {
                 LOG_INF("Could not initialise fuel gauge.");
-                return 0;
             }
             LOG_INF("Fuel gauge initialised for %s battery.", bat_name);
 
