@@ -210,6 +210,7 @@ int bt_init(void)
     {
         settings_load();
     }
+    m_connection_handle = NULL;
     bt_conn_cb_register(&connection_callbacks);
     k_work_init(&adv_work, adv_work_handler);
     advertising_start();
