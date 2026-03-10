@@ -3,6 +3,9 @@
     host-int-type = "level";
     pmic-int-pin = <1>;
     pmic-int-flags = <GPIO_ACTIVE_HIGH>;
+    shiphold-flags = <(GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    shiphold-longpress = "disable";
+    shiphold-current = "weak";
 };
 
 &npm2100_boost {

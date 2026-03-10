@@ -265,13 +265,8 @@ void ble_write_thread(void)
         {
             LOG_INF("BLE Thread does not detect an active BLE connection");
 
-            // quickly pulse the LED twice when we're advertising
-            for (int i = 0; i < 2; i++)
-            {
-                gpio_pin_set_dt(&bt_status_led, 1);
-                k_msleep(50);
-                gpio_pin_set_dt(&bt_status_led, 0);
-            }
+            // toggle the LED while advertising
+            gpio_pin_toggle_dt(&bt_status_led);
         }
 
         k_sleep(BLE_NOTIFY_INTERVAL);
