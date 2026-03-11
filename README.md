@@ -67,10 +67,10 @@ To build the sample, follow the instructions in [Building an application](https:
 > 
 > 1) **The board typically arrives in ship mode.**
 > 2) Plug in the SWD cable like the images below.
-> 3) Leave ship mode with the SWD cable plugged in. You can do this by holding the SHPHLD button for about half a second. The LED may not turn on this time. Try the next step. 
+> 3) Leave ship mode with the SWD cable plugged in. You can do this by holding the SHPHLD button for about a second. The LED may not turn on this time. Try the next step. 
 > 4) Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
 > 5) If the above failed, then remove the SWD cable. If the LED is blinking, enter ship mode by holding down SHPHLD for 2 seconds. The LED will turn off. Go back to step 1.
-> 6) If the LED is not blinking, exit shipmode by holding SHPHLD down for half a second until you see the LED blinking. Then hold it for two seconds to go back to ship mode, the LED will turn off. Go back to step 1.
+> 6) If the LED is not blinking, exit shipmode by holding SHPHLD down for bout a second until you see the LED blinking. Then hold it for to go back to ship mode, the LED will turn off. Go back to step 1.
 > 
 > This flow only has to happen for a first out of the box experience for the seeed board with this DK as the programmer. From here, as long as you're out of ship mode, you can reprogram the device without this sequence of steps. This behavior is not observed with a typical j-link or nRF52840-DK.
 
@@ -91,7 +91,7 @@ Then use the nRF Connect for Mobile app and use the scan filter for "Seeed" to f
 
 The LED will blink periodically while advertising, and when you connect via a central device (such as a smart phone) it will be on as a solid light.
 
-You can press and hold SHPHLD for ~2 seconds to enter ship mode (and the LED will stay off), and press/hold it for about 500ms or half a second to exit shipmode (and the LED should blink again for BLE activity).
+You can press and hold SHPHLD for ~2 seconds to enter ship mode (and the LED will stay off), and press/hold it to exit shipmode (and the LED should blink again for BLE activity).
 
 You can also write to the ship mode WR characteristic from a central device (like your phone) to enter ship mode via software, exiting it is still via the button. 
 
