@@ -69,6 +69,18 @@ static int shphld_state(bool *state)
     return 0;
 }
 
+static int shphld_cfg(void)
+{
+    int ret;
+    ret = i2c_reg_write_byte_dt(&pmic_i2c, 0xC1, 0x00); // rising edge, enable pin wakeup
+    if (ret)
+    {
+        LOG_ERR("Issue writing WAKEUP register (%d)", ret);
+    }
+
+    return ret;
+}
+
 static int read_sensors(const struct device *vbat, float *voltage, float *temp)
 {
     struct sensor_value value;
@@ -108,46 +120,38 @@ int fuel_gauge_init(const struct device *vbat, char *bat_name, size_t n)
         return err;
     }
 
-    if (state)
+    k_sem_give(&sem_pmic_ready);
+
+    struct nrf_fuel_gauge_init_parameters parameters = {
+        .model_primary = &battery_model,
+        .i0 = AVERAGE_CURRENT,
+        .opt_params = NULL,
+    };
+    struct nrf_fuel_gauge_runtime_parameters rt_params = {
+        .a = NAN,
+        .b = NAN,
+        .c = NAN,
+        .d = NAN,
+        .discard_positive_deltaz = true,
+    };
+    int ret;
+
+    ret = read_sensors(vbat, &parameters.v0, &parameters.t0);
+    if (ret < 0)
     {
-
-        k_sem_give(&sem_pmic_ready);
-
-        struct nrf_fuel_gauge_init_parameters parameters = {
-            .model_primary = &battery_model,
-            .i0 = AVERAGE_CURRENT,
-            .opt_params = NULL,
-        };
-        struct nrf_fuel_gauge_runtime_parameters rt_params = {
-            .a = NAN,
-            .b = NAN,
-            .c = NAN,
-            .d = NAN,
-            .discard_positive_deltaz = true,
-        };
-        int ret;
-
-        ret = read_sensors(vbat, &parameters.v0, &parameters.t0);
-        if (ret < 0)
-        {
-            return ret;
-        }
-
-        ret = nrf_fuel_gauge_init(&parameters, NULL);
-        if (ret < 0)
-        {
-            return ret;
-        }
-
-        ref_time = k_uptime_get();
-        nrf_fuel_gauge_param_adjust(&rt_params);
-        strncpy(bat_name, battery_model.name, n);
-        err = 0;
+        return ret;
     }
-    else
+
+    ret = nrf_fuel_gauge_init(&parameters, NULL);
+    if (ret < 0)
     {
-        err = -1;
+        return ret;
     }
+
+    ref_time = k_uptime_get();
+    nrf_fuel_gauge_param_adjust(&rt_params);
+    strncpy(bat_name, battery_model.name, n);
+    err = 0;
 
     return err;
 }
@@ -185,6 +189,12 @@ int pmic_fg_thread(void)
     fuel_gauge_initialized = false;
     uint8_t soc;
 
+    int err = shphld_cfg();
+    if (err)
+    {
+        LOG_INF("issue in shphld cfg");
+    }
+
     for (;;)
     {
         if (!fuel_gauge_initialized)
@@ -219,4 +229,4 @@ int pmic_reg_thread(void)
 K_THREAD_DEFINE(pmic_reg_thread_id, PMIC_THREAD_STACK_SIZE, pmic_reg_thread, NULL, NULL, NULL, PMIC_THREAD_PRIORITY, 0,
                 1000);
 K_THREAD_DEFINE(pmic_fg_thread_id, PMIC_THREAD_STACK_SIZE, pmic_fg_thread, NULL, NULL, NULL, PMIC_THREAD_PRIORITY, 0,
-                0);
+                150);

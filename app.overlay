@@ -6,6 +6,7 @@
     shiphold-flags = <(GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     shiphold-longpress = "ship";
     shiphold-current = "weak";
+    shiphold-hibernate-wakeup;
 };
 
 &npm2100_boost {
