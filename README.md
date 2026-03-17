@@ -68,7 +68,7 @@ To build the sample, follow the instructions in [Building an application](https:
 > 1) **The board typically arrives in ship mode.**
 > 2) Plug in the SWD cable like the images below.
 > 3) Leave ship mode with the SWD cable plugged in. You can do this by holding the SHPHLD button for about a second. The LED may not turn on this time. Try the next step. 
-> 4) Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+> 4) Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`. (_Note: you can go to a release of this repo ([LINK](https://github.com/droidecahedron/seeed_npm2100_nrf54l15_BFG/releases/tag/v1.0.0):link:) if you want just a binary to flash with._
 > 5) If the above failed, then remove the SWD cable. If the LED is blinking, enter ship mode by holding down SHPHLD for 2 seconds. The LED will turn off. Go back to step 1.
 > 6) If the LED is not blinking, exit shipmode by holding SHPHLD down for bout a second until you see the LED blinking. Then hold it for to go back to ship mode, the LED will turn off. Go back to step 1.
 > 
